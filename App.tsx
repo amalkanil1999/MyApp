@@ -6,11 +6,20 @@
  */
 
 import { NewAppScreen } from '@react-native/new-app-screen';
-import { StatusBar, StyleSheet, useColorScheme, View } from 'react-native';
+import {
+  StatusBar,
+  StyleSheet,
+  Text,
+  useColorScheme,
+  View,
+} from 'react-native';
 import {
   SafeAreaProvider,
   useSafeAreaInsets,
 } from 'react-native-safe-area-context';
+import AppNavigator from './src/navigation/AppNavigator';
+import { Fonts } from './src/constants/index';
+import { getIcon } from './src/utils/iconutils/IconUtility';
 
 function App() {
   const isDarkMode = useColorScheme() === 'dark';
@@ -18,7 +27,7 @@ function App() {
   return (
     <SafeAreaProvider>
       <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <AppContent />
+      <AppNavigator />
     </SafeAreaProvider>
   );
 }
@@ -28,10 +37,11 @@ function AppContent() {
 
   return (
     <View style={styles.container}>
-      <NewAppScreen
-        templateFileName="App.tsx"
-        safeAreaInsets={safeAreaInsets}
-      />
+      <Text style={{ fontWeight: '900' }}>Hello World!</Text>
+      <Text style={{ fontFamily: Fonts.regular }}>Hello World!</Text>
+      <View style={{ width: 50, height: 50 }}>
+        {getIcon('PasswordHide', 30, 30,)}
+      </View>
     </View>
   );
 }
