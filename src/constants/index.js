@@ -1,10 +1,10 @@
 
 // font family
 const Fonts = {
-  regular: 'Roboto-Regular',
-  medium: 'Roboto-Medium',
-  bold: 'Roboto-Bold',
-  semiBold: 'Roboto-SemiBold',
+  regular: 'Outfit-Regular',
+  medium: 'Outfit-Medium',
+  bold: 'Outfit-Bold',
+  semiBold: 'Outfit-SemiBold',
 };
 
 export { Fonts };

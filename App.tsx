@@ -18,6 +18,7 @@ import {
   useSafeAreaInsets,
 } from 'react-native-safe-area-context';
 import AppNavigator from './src/navigation/AppNavigator';
+import { Colorscheme } from './src/constants/Colors';
 import { Fonts } from './src/constants/index';
 import { getIcon } from './src/utils/iconutils/IconUtility';
 
@@ -26,7 +27,11 @@ function App() {
 
   return (
     <SafeAreaProvider>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
+      <StatusBar
+        backgroundColor={Colorscheme.MAINTHEME}
+        barStyle="dark-content"
+        translucent={false}
+      />
       <AppNavigator />
     </SafeAreaProvider>
   );
@@ -40,7 +45,7 @@ function AppContent() {
       <Text style={{ fontWeight: '900' }}>Hello World!</Text>
       <Text style={{ fontFamily: Fonts.regular }}>Hello World!</Text>
       <View style={{ width: 50, height: 50 }}>
-        {getIcon('PasswordHide', 30, 30,)}
+        {getIcon('PasswordHide', 30, 30)}
       </View>
     </View>
   );

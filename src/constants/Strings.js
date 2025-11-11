@@ -1,0 +1,20 @@
+export default {
+    authStrings:{
+        signUp: "Sign Up Account",
+        enterPersonalData: "Enter your personal data to create your account.",
+        enterDetails: "Enter your details to login",
+        haveAccount: "Already have an account?",
+        dontHaveAccount: "Don't have an account?",
+        signup: "Sign up", 
+        login: "Log in",
+        signIn: "Login",
+        firstName: "First Name",
+        lastName: "Last Name",
+        email: "Email",
+        password: "Password",
+        confirmPassword: "Confirm Password",
+        enterPassword: "Enter your password",
+        confirmYourPassword: "Confirm password",
+        mustBeAtLeast: "Must be at least 8 characters.",
+    },
+}
