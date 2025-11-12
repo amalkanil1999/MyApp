@@ -21,12 +21,15 @@ import AppNavigator from './src/navigation/AppNavigator';
 import { Colorscheme } from './src/constants/Colors';
 import { Fonts } from './src/constants/index';
 import { getIcon } from './src/utils/iconutils/IconUtility';
+import { Provider } from 'react-redux';
+import { store } from './src/redux/store'
 
 function App() {
   const isDarkMode = useColorScheme() === 'dark';
 
   return (
-    <SafeAreaProvider>
+    <Provider store={store}>
+      <SafeAreaProvider>
       <StatusBar
         backgroundColor={Colorscheme.MAINTHEME}
         barStyle="dark-content"
@@ -34,27 +37,10 @@ function App() {
       />
       <AppNavigator />
     </SafeAreaProvider>
+    </Provider>
+    
   );
 }
 
-function AppContent() {
-  const safeAreaInsets = useSafeAreaInsets();
-
-  return (
-    <View style={styles.container}>
-      <Text style={{ fontWeight: '900' }}>Hello World!</Text>
-      <Text style={{ fontFamily: Fonts.regular }}>Hello World!</Text>
-      <View style={{ width: 50, height: 50 }}>
-        {getIcon('PasswordHide', 30, 30)}
-      </View>
-    </View>
-  );
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-});
 
 export default App;

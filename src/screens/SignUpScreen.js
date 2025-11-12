@@ -20,8 +20,14 @@ import {
   passwordValidator,
 } from '../helpers/Validators';
 import { getIcon } from '../utils/iconutils/IconUtility';
+import { useDispatch, useSelector } from 'react-redux';
+import { signUp } from '../redux/authSlice';
 
 export default function SignUpScreen({ navigation }) {
+  const dispatch = useDispatch();
+  const status = useSelector(state => state.auth.status);
+  const signInerror = useSelector(state => state.auth.error);
+
   const [isPassVisible, setIsPassVisible] = useState(false);
   const [isConfirmVisible, setIsConfirmVisible] = useState(false);
 
@@ -39,13 +45,22 @@ export default function SignUpScreen({ navigation }) {
     passwordValidator(password) &&
     passwordValidator(confirmPass);
 
-  const handleContinue = () => {
+  const handleSignUp = async () => {
     if (password !== confirmPass) {
       setError('Passwords do not match');
       return;
     }
-    setError('');
-    console.log('Form Submitted!');
+    const result = await dispatch(signUp({ firstName, lastName, email, password }));
+    if (signUp.fulfilled.match(result)) {
+      console.log(result,"RESULTTTT");
+      // navigate to Home after successful signup
+      navigation.navigate('SignIn');
+    } else {
+      console.log("NOTHINGGGGG",result)
+
+      // handle error (result.payload contains rejection message)
+      // e.g. show toast or set state
+    }
   };
 
   return (
@@ -168,8 +183,8 @@ export default function SignUpScreen({ navigation }) {
           </View>
           <View style={styles.bottomButtonWrapper}>
             <CustomButton
-              title="Continue"
-              onPress={handleContinue}
+              title={status === 'loading' ? 'Saving...' : Strings.authStrings.signup}
+              onPress={handleSignUp}
               disabled={!isFormValid}
             />
           </View>

@@ -17,25 +17,32 @@ import CustomButton from '../components/CustomButton';
 
 import { nameValidator, emailValidator, passwordValidator } from '../helpers/Validators';
 import { getIcon } from '../utils/iconutils/IconUtility';
+import { useDispatch, useSelector } from 'react-redux';
+import { signIn } from '../redux/authSlice';
 
 export default function SignInScreen({ navigation }) {
+    const dispatch = useDispatch();
+  const status = useSelector(state => state.auth.status);
+  const signInerror = useSelector(state => state.auth.error);
   const [isPassVisible, setIsPassVisible] = useState(false);
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState('amalk@example.com');
+  const [password, setPassword] = useState('Amalk@1234');
   const [error, setError] = useState('');
 
   const isFormValid =
     emailValidator(email) &&
     passwordValidator(password)
 
-  const handleContinue = () => {
-    // if (password !== confirmPass) {
-    //   setError('Passwords do not match');
-    //   return;
-    // }
-    setError('');
-    console.log('Form Submitted!');
-  };
+const handleContinue = async () => {
+  setError('');
+  const result = await dispatch(signIn({ email, password }));
+  if (signIn.fulfilled.match(result)) {
+  } else {
+    // show the reason
+    const msg = result.payload || result.error?.message || 'Login failed';
+    setError(msg);
+  }
+};
 
   return (
     <KeyboardAvoidingView
@@ -106,7 +113,7 @@ export default function SignInScreen({ navigation }) {
             <Text allowFontScaling={false} style={styles.underText}>
               {Strings.authStrings.dontHaveAccount}
             </Text>
-            <TouchableOpacity activeOpacity={0.8} onPress={() => {navigation.navigate('SignIn')}}>
+            <TouchableOpacity activeOpacity={0.8} onPress={() => {navigation.navigate('SignUp')}}>
               <Text allowFontScaling={false} style={styles.underTextRight}>
               {Strings.authStrings.signup}
             </Text>
