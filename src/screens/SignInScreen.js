@@ -25,8 +25,8 @@ export default function SignInScreen({ navigation }) {
   const status = useSelector(state => state.auth.status);
   const signInerror = useSelector(state => state.auth.error);
   const [isPassVisible, setIsPassVisible] = useState(false);
-  const [email, setEmail] = useState('amalk@example.com');
-  const [password, setPassword] = useState('Amalk@1234');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const [error, setError] = useState('');
 
   const isFormValid =

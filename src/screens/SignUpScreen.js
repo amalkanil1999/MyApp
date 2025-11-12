@@ -31,11 +31,11 @@ export default function SignUpScreen({ navigation }) {
   const [isPassVisible, setIsPassVisible] = useState(false);
   const [isConfirmVisible, setIsConfirmVisible] = useState(false);
 
-  const [firstName, setFirstName] = useState('Amal');
-  const [lastName, setLastName] = useState('Anil');
-  const [email, setEmail] = useState('amalk@example.com');
-  const [password, setPassword] = useState('Amalk@1234');
-  const [confirmPass, setConfirmPass] = useState('Amalk@1234');
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPass, setConfirmPass] = useState('');
   const [error, setError] = useState('');
 
   const isFormValid =

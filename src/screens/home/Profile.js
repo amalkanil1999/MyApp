@@ -72,9 +72,6 @@ export default function Profile({ navigation }) {
         </View>
         <Text style={styles.settingLabel}>{item.label}</Text>
       </View>
-      <View style={styles.chevronIcon}>
-        {getIcon('ChevronRight', 20, 20, '#999')}
-      </View>
     </TouchableOpacity>
   );
 
