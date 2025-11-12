@@ -5,7 +5,6 @@
  * @format
  */
 
-import { NewAppScreen } from '@react-native/new-app-screen';
 import {
   StatusBar,
   StyleSheet,
@@ -19,8 +18,6 @@ import {
 } from 'react-native-safe-area-context';
 import AppNavigator from './src/navigation/AppNavigator';
 import { Colorscheme } from './src/constants/Colors';
-import { Fonts } from './src/constants/index';
-import { getIcon } from './src/utils/iconutils/IconUtility';
 import { Provider } from 'react-redux';
 import { store } from './src/redux/store'
 

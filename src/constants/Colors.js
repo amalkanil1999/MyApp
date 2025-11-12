@@ -7,6 +7,8 @@ export const Colorscheme = {
     TEXT: "#121212",
     LIGHTGRAY: "#6C757D",
     LIGHTBLACK: "#4B4B4B",
+    GRAY: "#4D565E",
+    RATING: "#505961",
     LIGHTBLUE: "#B4D1FF",
     RED: "#F41F52",
 };
