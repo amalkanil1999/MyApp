@@ -216,7 +216,7 @@ const styles = StyleSheet.create({
     backgroundColor: Colorscheme.BLUE,
     paddingHorizontal: 20,
     paddingTop: 8,
-    paddingBottom: 100,
+    paddingBottom: 70,
     borderBottomLeftRadius: 60,
     borderBottomRightRadius: 30,
     gap: 16,
