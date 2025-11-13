@@ -301,9 +301,8 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   exploreContainer: {
-    marginTop: 10,
+    marginTop: 100,
     paddingLeft: 20,
-    paddingTop: 60,
   },
   exploreTitle: {
     fontFamily: Fonts.semiBold,
